@@ -1,0 +1,39 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "cypress automation framework created by pooja",
+  "main": "index.js",
+  "scripts": {
+    "regression-tags-headed-chrome": "cypress run -e TAGS=\"@regression\" --headed --browser chrome",
+    "regression-tags-headless-chrome": "cypress run -e TAGS=\"@regression\" --browser chrome",
+
+    "login-suite-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Login.feature'",
+    "login-suite-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/Login.feature'",
+    
+    "contact-us-suite-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/Contact_Us.feature'",
+    "contact-us-suite-headless-chrome": "cypress run --browser chrome --spec 'cypress/e2e/Contact_Us.feature'",
+
+    "contact-us-tags-headed-chrome": "cypress run -e TAGS=\"@contact-us\" --headed --browser chrome"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^12.7.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^2.0.1",
+    "ts-loader": "^9.4.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
+    "html":{
+      "enabled" : true,
+      "output": "cypress/reports/cucumber-html/cucumber-report.html"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-ndjson/cucumber-report.ndjson"
+    }
+  }
+}
